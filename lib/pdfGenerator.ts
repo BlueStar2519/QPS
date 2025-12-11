@@ -78,7 +78,7 @@ export async function generatePillarPDF(
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(191, 138, 101); // Brown/bronze color
-  doc.text('Quiet Presence Score', 20, yPos);
+  doc.text('Quiet Presence Scan', 20, yPos);
   yPos += 12;
 
   doc.setFontSize(16);
@@ -162,7 +162,7 @@ export async function generatePillarPDF(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(80, 80, 80);
   doc.text(`Generated on ${new Date().toLocaleDateString()}`, 20, yPos);
-  doc.text('Quiet Presence Score · Nuance & Clarity', 150, yPos);
+  doc.text('Quiet Presence Scan · Nuance & Clarity', 150, yPos);
 
   // Add logo to all pages
   await addNCLogoToAllPages(doc);
@@ -184,20 +184,42 @@ export async function generatePillarGHIPDF(
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(191, 138, 101); // Brown/bronze color
-  doc.text('Quiet Presence Score', 20, yPos);
+  doc.text('Quiet Presence Scan', 20, yPos);
   yPos += 12;
 
   doc.setFontSize(16);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(30, 30, 30);
   doc.text(`${pillar.name} · GHI Lens`, 20, yPos);
+  yPos += 15;
+
+  // "Pillar → Global Brand Health" badge/header (no background)
+  // Using "->" instead of "→" for PDF compatibility
+  const badgeText = 'Pillar -> Global Brand Health';
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'bold');
+  
+  // Draw text (dark color on white background)
+  doc.setTextColor(60, 60, 60);
+  doc.text(badgeText, 20, yPos);
+  
+  yPos += 12;
+
+  // Pillar name
+  doc.setFontSize(14);
+  doc.setFont('helvetica', 'bold');
+  doc.setTextColor(0, 0, 0);
+  doc.text(pillar.name, 20, yPos);
   yPos += 10;
 
+  // Description paragraph
   doc.setFontSize(11);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(60, 60, 60);
-  doc.text('Pillar → Global Brand Health', 20, yPos);
-  yPos += 15;
+  const descriptionText = 'Here you can see how this pillar alone contributes to key business indicators for retention, pricing power and day-to-day stability.';
+  const splitDesc = doc.splitTextToSize(descriptionText, 170);
+  doc.text(splitDesc, 20, yPos);
+  yPos += splitDesc.length * 6 + 15;
 
   if (ownerScores && clientsAvgScores) {
     GI_MAP.forEach((ind, idx) => {
@@ -280,7 +302,7 @@ export async function generatePillarGHIPDF(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(80, 80, 80);
   doc.text(`Generated on ${new Date().toLocaleDateString()}`, 20, yPos);
-  doc.text('Quiet Presence Score · Nuance & Clarity', 150, yPos);
+  doc.text('Quiet Presence Scan · Nuance & Clarity', 150, yPos);
 
   // Add logo to all pages
   await addNCLogoToAllPages(doc);
@@ -300,7 +322,7 @@ export async function generateOverallPDF(
   doc.setFontSize(24);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(191, 138, 101); // Brown/bronze color
-  doc.text('Quiet Presence Score', 20, yPos);
+  doc.text('Quiet Presence Scan', 20, yPos);
   
   yPos += 18;
 
@@ -372,9 +394,9 @@ export async function generateOverallPDF(
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(20, 20, 20);
-  doc.text(`Global Quiet Presence Score · Owner: ${fmtScore(globalOwner)}`, 20, yPos);
+  doc.text(`Global Quiet Presence Scan · Owner: ${fmtScore(globalOwner)}`, 20, yPos);
   yPos += 10;
-  doc.text(`Global Quiet Presence Score · Clients avg.: ${fmtScore(globalClients)}`, 20, yPos);
+  doc.text(`Global Quiet Presence Scan · Clients avg.: ${fmtScore(globalClients)}`, 20, yPos);
   yPos += 10;
   doc.text(`Global gap (Owner vs. clients avg.): ${globalGap == null ? "—" : globalGap.toFixed(2) + " / 4"}`, 20, yPos);
   yPos += 15;
@@ -402,7 +424,7 @@ export async function generateOverallPDF(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(80, 80, 80);
   doc.text(`Generated on ${new Date().toLocaleDateString()}`, 20, yPos);
-  doc.text('Quiet Presence Score · Nuance & Clarity', 150, yPos);
+  doc.text('Quiet Presence Scan · Nuance & Clarity', 150, yPos);
 
   // Add logo to all pages
   await addNCLogoToAllPages(doc);
@@ -421,7 +443,7 @@ export async function generateOverallGHIPDF(
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(191, 138, 101); // Brown/bronze color
-  doc.text('Quiet Presence Score', 20, yPos);
+  doc.text('Quiet Presence Scan', 20, yPos);
   yPos += 12;
 
   doc.setFontSize(16);
@@ -488,7 +510,7 @@ export async function generateOverallGHIPDF(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(80, 80, 80);
   doc.text(`Generated on ${new Date().toLocaleDateString()}`, 20, yPos);
-  doc.text('Quiet Presence Score · Nuance & Clarity', 150, yPos);
+  doc.text('Quiet Presence Scan · Nuance & Clarity', 150, yPos);
 
   // Add logo to all pages
   await addNCLogoToAllPages(doc);
@@ -510,7 +532,7 @@ export async function generateFinalReportPDF(
   doc.setFontSize(26);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(191, 138, 101); // Brown/bronze color
-  doc.text('Quiet Presence Score', 105, 80, { align: 'center' });
+  doc.text('Quiet Presence Scan', 105, 80, { align: 'center' });
   
   doc.setFontSize(18);
   doc.setFont('helvetica', 'bold');
@@ -551,7 +573,7 @@ export async function generateFinalReportPDF(
   doc.setFontSize(13);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(30, 30, 30);
-  doc.text('Global Quiet Presence Score', 20, yPos);
+  doc.text('Global Quiet Presence Scan', 20, yPos);
   yPos += 12;
 
   doc.setFontSize(11);
@@ -760,7 +782,7 @@ export async function generateFinalReportPDF(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(80, 80, 80);
   doc.text(`Generated on ${new Date().toLocaleDateString()}`, 20, yPos);
-  doc.text('Quiet Presence Score · Nuance & Clarity', 150, yPos);
+  doc.text('Quiet Presence Scan · Nuance & Clarity', 150, yPos);
   doc.text(`Page ${pageNumber}`, 105, yPos, { align: 'center' });
 
   // Add logo to all pages

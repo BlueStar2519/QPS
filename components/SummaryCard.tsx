@@ -321,8 +321,8 @@ export default function SummaryCard() {
           </table>
 
           <div className="completion-note">
-            <strong>Global Quiet Presence Score · Owner:</strong> {fmtScore(globalOwner)}<br />
-            <strong>Global Quiet Presence Score · Clients avg.:</strong> {fmtScore(globalClients)}<br />
+            <strong>Global Quiet Presence Scan · Owner:</strong> {fmtScore(globalOwner)}<br />
+            <strong>Global Quiet Presence Scan · Clients avg.:</strong> {fmtScore(globalClients)}<br />
             <strong>Global gap (Owner vs. clients avg.):</strong> {globalGap == null ? "—" : globalGap.toFixed(2) + " / 4"}
           </div>
           <div className="completion-note">
@@ -475,7 +475,7 @@ export default function SummaryCard() {
           <div className="card-step-pill">Developer payload</div>
         </div>
         <div className="card-body">
-          <p className="q-title">Quiet Presence Score · data package</p>
+          <p className="q-title">Quiet Presence Scan · data package</p>
           <p className="q-hint">
             This JSON object can be passed to your QPS / Quiet Signals reporting engine and PDF / email layer.
           </p>

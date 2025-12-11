@@ -1,6 +1,6 @@
-# Quiet Presence Score Wizard
+# Quiet Presence Scan Wizard
 
-A Next.js application for the Quiet Presence Score (QPS) wizard - a guided, card-by-card scan of brand presence.
+A Next.js application for the Quiet Presence Scan (QPS) wizard - a guided, card-by-card scan of brand presence.
 
 ## Getting Started
 

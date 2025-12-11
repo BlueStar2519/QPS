@@ -6,7 +6,7 @@ export default function HeroCard() {
       <div className="hero-inner">
         <p className="hero-kicker">Fast, calm brand scan</p>
         <h1 className="hero-title">
-          Quiet Presence Score <span>(QPS)</span>
+          Quiet Presence Scan <span>(QPS)</span>
         </h1>
         <p className="hero-subtitle">
           A guided, card-by-card scan of how <strong>you</strong> see your brand or space – and how up to

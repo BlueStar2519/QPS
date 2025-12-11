@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide will help you deploy your Quiet Presence Score application online.
+This guide will help you deploy your Quiet Presence Scan application online.
 
 ## Option 1: Vercel (Recommended - Easiest)
 

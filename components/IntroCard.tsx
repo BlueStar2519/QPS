@@ -8,7 +8,7 @@ export default function IntroCard() {
   return (
     <div className="card">
       <div className="card-header-row">
-        <div className="card-title">Quiet Presence Score</div>
+        <div className="card-title">Quiet Presence Scan</div>
         <div className="card-step-pill">Step 1 of 4</div>
       </div>
       <div className="card-body">

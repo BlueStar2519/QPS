@@ -18,7 +18,7 @@ export default function Home() {
         <div className="nc-container">
           <div className="nc-badge">
             <span className="nc-badge-dot"></span>
-            <span>Quiet Presence Score · QPS</span>
+            <span>Quiet Presence Scan · QPS</span>
           </div>
 
           {state.mode === 'intro' && <HeroCard />}

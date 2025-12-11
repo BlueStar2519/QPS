@@ -26,7 +26,7 @@ If you haven't already, push your code to GitHub:
 
 3. **Create your first commit**:
    ```bash
-   git commit -m "Initial commit - Quiet Presence Score"
+   git commit -m "Initial commit - Quiet Presence Scan"
    ```
 
 4. **Create a new repository on GitHub**:

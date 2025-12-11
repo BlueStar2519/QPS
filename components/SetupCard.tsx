@@ -55,7 +55,7 @@ export default function SetupCard() {
   const active = getActivePillarsInOrder(state.pillars);
   let summaryText = "No pillars selected yet. Choose full scan or select at least one pillar.";
   if (active.length === 5) {
-    summaryText = "You are scanning: Full Quiet Presence Score (all five pillars).";
+    summaryText = "You are scanning: Full Quiet Presence Scan (all five pillars).";
   } else if (active.length > 0) {
     summaryText = "You are scanning: " + active.map(x => qpsQuestions[x].name).join(", ");
   }
