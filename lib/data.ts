@@ -1,3 +1,8 @@
+// Configuration flag for developer mode
+// When false, the Developer JSON Payload screen is hidden from normal users
+// When true, the Developer JSON Payload screen is shown after the final summary
+export const QPS_DEVELOPER_MODE = false;
+
 export const qpsQuestions = {
   presence: {
     key: "presence",
@@ -152,6 +157,10 @@ export const GHI_TOP_SOURCES = [
   {
     label: "Ehrenberg-Bass · Better Brand Health",
     url: "https://marketingscience.info/better-brand-health/"
+  },
+  {
+    label: "IPA EffWorks",
+    url: "https://ipa.co.uk/topics/effectiveness/effworks"
   },
   {
     label: "McKinsey · Experience-led growth",

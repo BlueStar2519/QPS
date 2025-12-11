@@ -2,7 +2,7 @@
 
 import { useApp } from '@/contexts/AppContext';
 import { getActivePillarsInOrder, computeScoresForAnswers, averageClientScores, fmtScore, Role } from '@/lib/utils';
-import { qpsQuestions, ROLE_LABELS, GI_MAP, ANSWER_SCORES } from '@/lib/data';
+import { qpsQuestions, ROLE_LABELS, GI_MAP, ANSWER_SCORES, QPS_DEVELOPER_MODE } from '@/lib/data';
 import { PillarKey } from '@/lib/utils';
 import { useMemo } from 'react';
 import { generatePillarPDF, generatePillarGHIPDF, generateOverallPDF, generateOverallGHIPDF, generateFinalReportPDF } from '@/lib/pdfGenerator';
@@ -344,12 +344,14 @@ export default function SummaryCard() {
             >
               What this overall picture means in GHI
             </button>
-            <button
-              className="primary-btn"
-              onClick={() => dispatch({ type: 'SET_SUMMARY_STAGE', payload: 'final' })}
-            >
-              Finish & show developer JSON ⟶
-            </button>
+            {QPS_DEVELOPER_MODE && (
+              <button
+                className="primary-btn"
+                onClick={() => dispatch({ type: 'SET_SUMMARY_STAGE', payload: 'final' })}
+              >
+                Finish & show developer JSON ⟶
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -425,12 +427,14 @@ export default function SummaryCard() {
             >
               PDF: overall GHI view
             </button>
-            <button
-              className="primary-btn"
-              onClick={() => dispatch({ type: 'SET_SUMMARY_STAGE', payload: 'final' })}
-            >
-              Finish & show developer JSON ⟶
-            </button>
+            {QPS_DEVELOPER_MODE && (
+              <button
+                className="primary-btn"
+                onClick={() => dispatch({ type: 'SET_SUMMARY_STAGE', payload: 'final' })}
+              >
+                Finish & show developer JSON ⟶
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -438,6 +442,13 @@ export default function SummaryCard() {
   }
 
   if (state.summary.stage === 'final') {
+    // Only show Developer JSON Payload screen if developer mode is enabled
+    if (!QPS_DEVELOPER_MODE) {
+      // If developer mode is disabled, redirect back to overall view
+      dispatch({ type: 'SET_SUMMARY_STAGE', payload: 'overall' });
+      return null;
+    }
+
     const payload = {
       meta: {
         initialWho: state.initialWho,
