@@ -768,4 +768,3 @@ export async function generateFinalReportPDF(
 
   doc.save(`QPS-Complete-Report-${new Date().toISOString().split('T')[0]}.pdf`);
 }
-

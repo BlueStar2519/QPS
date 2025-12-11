@@ -154,10 +154,6 @@ export const GHI_TOP_SOURCES = [
     url: "https://marketingscience.info/better-brand-health/"
   },
   {
-    label: "IPA EffWorks",
-    url: "https://ipa.co.uk/topics/effectiveness/effworks"
-  },
-  {
     label: "McKinsey · Experience-led growth",
     url: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/experience-led-growth-a-new-way-to-create-value"
   }
